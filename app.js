@@ -3,7 +3,7 @@ const express = require("express");
 const middleware = require("./middleware");
 const path = require("path");
 const bodyParser = require('body-parser');
-
+const mongoose = require("./database");
 //Routes
 const loginRoute = require("./routes/loginRoutes");
 const registerRoute = require("./routes/registerRoutes");

@@ -7,7 +7,7 @@ router.get("/",(req,res,next)=>{
 
 router.post("/",(req,res,next)=>{
    let {firstName,lastName,login,email,password,passwordConf} = req.body;
-   if(firstName && lastName && login && email && password && passwordConf && passwordConf==pass){
+   if(firstName && lastName && login && email && password && passwordConf && passwordConf==password){
 
    }
    else{
