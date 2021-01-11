@@ -1,14 +1,8 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const bodyParser = require("body-parser")
 const bcrypt = require("bcrypt");
 const User = require('../schemas/UserSchema');
-
-app.set("view engine", "pug");
-app.set("views", "views");
-
-app.use(bodyParser.urlencoded({ extended: false }));
 
 router.get("/", (req, res, next) => {
 
@@ -16,19 +10,13 @@ router.get("/", (req, res, next) => {
 })
 
 router.post("/", async (req, res, next) => {
+    let {firstName,lastName,username,email,password} = req.body;
+    let payload = req.body;
 
-    var firstName = req.body.firstName.trim();
-    var lastName = req.body.lastName.trim();
-    var login = req.body.login.trim();
-    var email = req.body.email.trim();
-    var password = req.body.password;
-
-    var payload = req.body;
-
-    if(firstName && lastName && login && email && password) {
-        var user = await User.findOne({
+    if(firstName && lastName && username && email && password) {
+        let user = await User.findOne({
             $or: [
-                { username: login },
+                { username: username },
                 { email: email }
             ]
         })
