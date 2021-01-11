@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 })
 
 router.post("/", async (req, res, next) => {
-    let {firstName,lastName,username,email,password} = req.body;
+    let {firstName ,lastName,username,email,password} = req.body;
     let payload = req.body;
 
     if(firstName && lastName && username && email && password) {

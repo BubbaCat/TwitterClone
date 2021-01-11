@@ -20,7 +20,6 @@ router.post("/", async (req,res,next) => {
             req.body.errorMessage="something went wront";
             res.status(200).render("login", req.body.errorMessage);
         })
-        console.log(user);
         if(user != null){
             var isPassConfirmed = await bcrypt.compare(req.body.logPassword ,user.password)
             if(isPassConfirmed === true)

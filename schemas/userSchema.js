@@ -5,11 +5,13 @@ const userSchema = new Schema({
         type:String,
         required:true,
         trim:true,
+        unique:false,
     },
     lastName:{
         type:String,
         required:true,
         trim:true,
+        unique:false,
     },
     username:{
         type:String,
