@@ -8,6 +8,7 @@ const session = require("express-session");
 //Routes
 const loginRoute = require("./routes/loginRoutes");
 const registerRoute = require("./routes/registerRoutes");
+const logoutRoute = require("./routes/logoutRoutes");
 
 //Config stuff
 const app = express();
@@ -29,13 +30,12 @@ app.use(session({
 }));
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
+app.use("/logout", logoutRoute);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
-
     var payload = {
         pageTitle: "Home",
         userLoggedIn: req.session.user
     }
-
     res.status(200).render("home", payload);
 })

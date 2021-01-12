@@ -12,7 +12,7 @@ class DataBase{
             useFindAndModify:false,
             useUnifiedTopology:true})
         .then(()=>{
-            console.log("Db connected");
+            console.log("FIIINE");
         })
         .catch((err)=>{
             console.log("error "+err);
