@@ -18,7 +18,7 @@ router.post("/", async (req,res,next) => {
             }).catch(err=> {
             console.log(err);
             req.body.errorMessage="something went wront";
-            res.status(200).render("login", req.body.errorMessage);
+            return res.status(200).render("login", req.body.errorMessage);
         })
         if(user != null){
             var isPassConfirmed = await bcrypt.compare(req.body.logPassword ,user.password)
@@ -29,8 +29,8 @@ router.post("/", async (req,res,next) => {
             }
         }
         req.body.errorMessage = "Login failed";
-        res.status(200).render('login',req.body.errorMessage);
+        return res.status(200).render('login',req.body.errorMessage);
     }
-    res.status(200).render('login');
+   return res.status(200).render('login');
 });
 module.exports = router;
