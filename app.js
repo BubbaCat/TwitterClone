@@ -29,6 +29,7 @@ app.use(session({
 	resave:true,
 	saveUninitialized:false,
 }));
+
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/logout", logoutRoute);
