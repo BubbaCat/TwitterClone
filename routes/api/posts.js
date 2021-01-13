@@ -8,10 +8,12 @@ router.post("/", async (req,res,next) => {
     if(!req.body.content){
         return res.sendstatus(400);
     }
-
-    
-
-    res.status(200).send("it works"); 
+    let postData = {
+        contnet = req.body.content,
+        author = req.session.user
+    }
+    let post = await Post.create(postData).catch(err=>{console.log(err) ;return res.send(400)});
+    return res.status(201).send(post);
 });
 
 module.exports = router;
