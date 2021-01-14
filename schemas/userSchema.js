@@ -31,8 +31,9 @@ const userSchema = new Schema({
     },
     profilePic:{
         type:String,
-        default:"/image/profilePic.jpg"
-    }
+        default:"/img/profilePic.jpeg"
+    },
+    likes: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 },{timestamps:true});
 
 let User = mongoose.model('User', userSchema);
